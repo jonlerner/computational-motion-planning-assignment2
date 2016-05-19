@@ -79,11 +79,12 @@ title ('Configuration Space');
 figure;
 
 % You should experiment by changing these coordinates
-start_coords = [1, 1];
+start_coords = [60, 60];
 end_coords = [10, 100];
 
 % Find a route between the start and end nodes
-route = DijkstraTorus (cspace, start_coords, end_coords);
+%route = DijkstraTorus (cspace, start_coords, end_coords);
+route = AStarTorus (cspace, start_coords, end_coords);
 
 %% Animate the route
 
