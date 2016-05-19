@@ -137,11 +137,7 @@ else
 end
 
     function visitNode(i, j, p)
-        if (map(i,j) == 2 || map(i,j) == 3 || map(i,j) == 4 || map(i,j) == 5)
-            return;
-        end
-        
-        if (g(i,j) > g(p) + 1)
+        if (map(i,j) ~= 2 && map(i,j) ~= 3 && map(i,j) ~= 4 && map(i,j) ~= 5 && g(i,j) > g(p) + 1)
             g(i,j) = g(p) + 1;
             f(i,j) = g(i,j) + H(i,j);
             parent(i,j) = current;
