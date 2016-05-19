@@ -83,6 +83,10 @@ while true
     %%% All of your code should be between the two lines of stars. 
     % *******************************************************************
     
+    visitNode(mod(i-2,181)+1, j, nrows, ncols, current, min_dist);
+    visitNode(mod(i,181)+1, j, nrows, ncols, current, min_dist);
+    visitNode(i, mod(j-2,181)+1, nrows, ncols, current, min_dist);
+    visitNode(i, mod(j,181)+1, nrows, ncols, current, min_dist);
     
     % *******************************************************************
 end
@@ -102,6 +106,27 @@ end
             distances(i,j) = d;
             map(i,j) = 4;
             parent(i,j) = p;
+        end
+    end
+
+    function visitNode(i, j, nrows, ncols, current, min_dist)
+        % Check bounds
+        if (i < 1 || i > nrows || j < 1 || j > ncols)
+            return;
+        end
+        
+        node = sub2ind(size(map), i, j);
+        
+        % Check status
+        if (map(node) == 2 || map(node) == 3 || map(node) == 4 || map(node) == 5)
+            return;
+        end
+        
+        % Add node to list
+        if (distances(node) > min_dist + 1)
+            distances(node) = min_dist + 1;
+            parent(node) = current;
+            map(node) = 4;  % mark on list
         end
     end
 

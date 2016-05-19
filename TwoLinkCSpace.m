@@ -79,8 +79,8 @@ title ('Configuration Space');
 figure;
 
 % You should experiment by changing these coordinates
-start_coords = [40, 80];
-end_coords = [100, 110];
+start_coords = [1, 1];
+end_coords = [10, 100];
 
 % Find a route between the start and end nodes
 route = DijkstraTorus (cspace, start_coords, end_coords);
